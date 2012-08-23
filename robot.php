@@ -1,15 +1,16 @@
 <?php
 
-class Robot {
+class Robot1 {
 
-    public $name = "Optimus";
-    public $color = "Red";
+    public $colour;
+    public $eyeColour;
+    public $name;
 
-    // method declaration
-    public function displayVar() {
-        print $this->$name;
+    public function dance() {
+        for ($i = 0; $i < 10; $i++) {
+            print "robot $this->name is doing the robo-boogie, dressed in a lovely shade of $this->colour ....<br/>";
+        }
     }
 
 }
-
 ?>
