@@ -10,21 +10,24 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        
-    $myArray = array("Apples", "Oranges", "Pears");
+        $myArray = array("Apples", "Oranges", "Pears");
+        $newArray = ["a"=>"APPLES"];
         $size = count($myArray);
-        
+
         print "There are $size items in the array.</br>\n";
-        print "The first item it " . $myArray [0] . "</br>\n";
-        print "The first item it " . $myArray [1] . "</br>\n";
-        print "The first item it " . $myArray [2] . "</br>\n";
-        var_dump($myArray);
+        print "The first item is " . $myArray [0] . "</br>\n";
+        print "The first item is " . $myArray [1] . "</br>\n";
+        print "The first item is " . $myArray [2] . "</br>\n";
+        printOutArray($myArray);
         //add some passionfruit
         $myArray[] = "Passionfruit";
-        
-        
-     
-    
+
+        function printOutArray($myArray) {
+            print "===================</br>\n";
+            foreach ($myArray as $key => $value) {
+                print "$key: $value </br>\n";
+            }
+        }
         ?>
     </body>
 </html>
