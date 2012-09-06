@@ -27,6 +27,7 @@ and open the template in the editor.
             
             form {
                 
+
                 width: 50%;
                 margin-left: auto;
                 margin-right: auto;
