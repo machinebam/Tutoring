@@ -40,6 +40,8 @@ and open the template in the editor.
             print "<tr><td>$key</td><td>$value</td></tr>\n";
         }
         print '</table>';
+
+
         ?>
     </body>
 </html>
