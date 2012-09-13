@@ -12,7 +12,7 @@ and open the template in the editor.
         <?php
         if(!empty($_POST)) {
             
-            
+            print" Thank You";
         }
         
         else {
