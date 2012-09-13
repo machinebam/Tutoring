@@ -7,6 +7,41 @@ and open the template in the editor.
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Great Music Table</title>
+        
+        <style type="text/css">
+            
+            html, body {
+                
+                
+            }
+            
+            h1 {
+                font-family: serif;
+                color: brown;
+               text-align: center;
+                
+            }
+            
+                       table, th, td {
+                
+                font-family:sans-serif;
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            
+            th, td {
+                
+                padding: 0.5em;
+            }
+            
+            tr:nth-child(even) {
+                background-color: burlywood; 
+            }
+            
+            
+            
+        </style>
+        
     </head>
     <body>
         <?php
@@ -24,7 +59,7 @@ VALUES ('Abbey Road', 'Beatles',1970)");
 
 
             mysql_close($conn);
-            print" Thank You. The album has been added</br> ";
+            print" <h1>Thank You. The album has been added</h1></br> ";
 
             $conn = mysqli_connect('localhost', 'root', '', 'cdcol', '3306');
             if (!$conn) {

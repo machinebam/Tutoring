@@ -7,6 +7,20 @@ and open the template in the editor.
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Great Music Submission</title>
+        
+        <style type="text/css">
+            html, body {
+                
+                background-color: bisque;
+                font-family: serif;
+            }
+            label {
+                text-align: center;
+                
+            }
+            
+            
+        </style>
     </head>
     <body>
         <?php
@@ -24,15 +38,15 @@ and open the template in the editor.
 
         <form action="cdDataBase.php" method="POST">
             <label for="firstName">Album</label>
-            <input id="firstName" type="text" name="firstName" value="" />
+            <input id="Album" type="text" name="Album" value="" />
             </br>
 
             <label for="firstName">Artist</label>
-            <input id="lastName" type="text" name="lastName" value="" />
+            <input id="Artist" type="text" name="Artist" value="" />
             </br>
 
             <label for="firstName">Year</label>
-            <input id="lastName" type="text" name="lastName" value="" />
+            <input id="Year" type="text" name="Year" value="" />
 
             </br>
             <input type="submit" value="Go" name="Submit" />
