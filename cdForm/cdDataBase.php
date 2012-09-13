@@ -10,7 +10,17 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        // put your code here
+        if(!empty($_POST)) {
+            
+            
+        }
+        
+        else {
+            print "You need to go <a href=\"http://localhost/ScottDip/cdForm/cdForm.php\">
+                here</a>";
+        }
+        
+        
         ?>
     </body>
 </html>
