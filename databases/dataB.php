@@ -6,11 +6,31 @@ and open the template in the editor.
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Database</title>
+        <title>Database's Son</title>
+        
+        <style type="text/css">
+            table, th, td {
+                
+                font-family:sans-serif;
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            
+            th, td {
+                
+                padding: 0.5em;
+            }
+            
+            tr:nth-child(even) {
+                background-color: burlywood; 
+            }
+            
+    </style>
+        
     </head>
     <body>
         <?php
-      $conn = mysqli_connect('localhost', 'root', '', 'cdcol?zeroDateTimeBehavior=convertToNull', '3306');
+      $conn = mysqli_connect('localhost', 'root', '', 'cdcol', '3306');
       if (!$conn) {
           die('Could not connect to MySQL: ' . mysqli_connect_error());
       }
