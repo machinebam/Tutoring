@@ -10,20 +10,18 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        
         if (empty($_POST)) {
             print "<h1>Add your CD.</h1><br\>";
         } else {
             print "Welcome " . $_POST['Album'] . " " . $_POST['Artist'];
         }
 
-      
+
         echo "</p>\n";
         echo "<p>\n";
-
         ?>
 
-       
+
         <form action="cdDataBase.php" method="POST">
             <label for="firstName">Album</label>
             <input id="firstName" type="text" name="firstName" value="" />
