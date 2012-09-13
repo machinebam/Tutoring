@@ -10,23 +10,15 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        $myArray = array("Apples", "Oranges", "Pears");
-        $newArray = ["a"=>"APPLES"];
-        $size = count($myArray);
+        $zodiacs = array("Aries" => "20 March", "Taurus" => "20 April",
+            "Gemini" => "21 May", "Cancer" => "21 June",
+            "Leo" => "22 July", "Virgo" => "23 August",
+            "Libra" => "23 September", "Scorpio" => "23 October",
+            "Sagittarius" => "22 November", "Capricorn" => "22 December",
+            "Aquarius" => "20 January", "Pisces" => "20 March");
 
-        print "There are $size items in the array.</br>\n";
-        print "The first item is " . $myArray [0] . "</br>\n";
-        print "The first item is " . $myArray [1] . "</br>\n";
-        print "The first item is " . $myArray [2] . "</br>\n";
-        printOutArray($myArray);
-        //add some passionfruit
-        $myArray[] = "Passionfruit";
-
-        function printOutArray($myArray) {
-            print "===================</br>\n";
-            foreach ($myArray as $key => $value) {
-                print "$key: $value </br>\n";
-            }
+        foreach ($zodiacs as $key => $value) {
+            print " \$zodiacs: $key $value\n";
         }
         ?>
     </body>
