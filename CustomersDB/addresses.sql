@@ -1,0 +1,70 @@
+select * from addresses
+
+
+
+
+
+-- ---
+-- Globals
+-- ---
+
+-- SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+-- SET FOREIGN_KEY_CHECKS=0;
+
+-- ---
+-- Table 'Customers'
+-- MetaData
+-- ---
+
+DROP TABLE IF EXISTS `Customers`;
+		
+CREATE TABLE `Customers` (
+  `id` TINYINT NOT NULL AUTO_INCREMENT,
+  `FIRSTNAME` VARCHAR(40) NOT NULL,
+  `LASTNAME` VARCHAR(40) NOT NULL,
+  `USERNAME` VARCHAR(25) NOT NULL,
+  `PASSWORD` VARCHAR(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) COMMENT 'MetaData';
+
+-- ---
+-- Table 'ADDRESSES'
+-- Woo!
+-- ---
+
+DROP TABLE IF EXISTS `ADDRESSES`;
+		
+CREATE TABLE `ADDRESSES` (
+  `id` TINYINT NOT NULL AUTO_INCREMENT,
+  `CUSTOMER_ID` TINYINT NOT NULL,
+  `STREET` VARCHAR(255) NULL DEFAULT NULL,
+  `TOWN` VARCHAR(255) NOT NULL,
+  `POSTCODE` VARCHAR(10) NOT NULL,
+  `STATE` VARCHAR(10) NOT NULL,
+  `COUNTRY` VARCHAR(255) NOT NULL,
+  `TYPE` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) COMMENT 'Woo!';
+
+-- ---
+-- Foreign Keys 
+-- ---
+
+ALTER TABLE `ADDRESSES` ADD FOREIGN KEY (CUSTOMER_ID) REFERENCES `Customers` (`id`);
+
+-- ---
+-- Table Properties
+-- ---
+
+-- ALTER TABLE `Customers` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `ADDRESSES` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ---
+-- Test Data
+-- ---
+
+-- INSERT INTO `Customers` (`id`,`FIRSTNAME`,`LASTNAME`,`USERNAME`,`PASSWORD`) VALUES
+-- ('','','','','');
+-- INSERT INTO `ADDRESSES` (`id`,`CUSTOMER_ID`,`STREET`,`TOWN`,`POSTCODE`,`STATE`,`COUNTRY`,`TYPE`) VALUES
+-- ('','','','','','','','');
+
