@@ -9,13 +9,13 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        
-         <?php
+
+        <?php
         $word1 = "Carn";
         $word2 = "the";
         $word3 = "Swans";
-        
-        
+
+
         print "$word1 $word2 $word3";
         ?>
     </body>

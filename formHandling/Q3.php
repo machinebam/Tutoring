@@ -10,45 +10,33 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        
-       
-        
-       function displayImage ($img, $alt="Boy With Dolphin", $hight = "148", $wide = "224")
-                
-                {
 
- 
-           
-     $displayImage = "<img src=\"$img\"
+        function displayImage($img, $alt = "Boy With Dolphin", $hight = "148", $wide = "224") {
+
+
+
+            $displayImage = "<img src=\"$img\"
      height=\"$hight\"
      width=\"$wide\"
      alt=\"$alt\" />";
-     
-     print "$displayImage";
-  
-       }     
-       
-        
+
+            print "$displayImage";
+        }
+
         displayImage("http://www.qikr.co/images/img01.jpg");
         displayImage("http://www.qikr.co/images/img01.jpg", "Boy With Dolphin");
         displayImage("http://www.qikr.co/images/img01.jpg", "Boy With Dolphin", 148);
-        displayImage("http://www.qikr.co/images/img01.jpg",
-                        "Boy With Dolphin",
-                        148,
-                        224);
-        
-     
-        
-        
+        displayImage("http://www.qikr.co/images/img01.jpg", "Boy With Dolphin", 148, 224);
 
-        
-       // print "http://www.qikr.co/images/img01.jpg";
-         
-        
-        
+
+
+
+
+
+        // print "http://www.qikr.co/images/img01.jpg";
         ?>
-        
-      
-        
+
+
+
     </body>
 </html>

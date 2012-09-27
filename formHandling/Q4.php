@@ -18,7 +18,7 @@ and open the template in the editor.
             'Collingwood' => 'Buckley',
             'Essendon' => 'Hird',
             'Fremantle' => 'Lyon',
-            'Geelong'=> 'Scott',
+            'Geelong' => 'Scott',
             'Gold Coast' => 'McKenna',
             'Greater Western Sydney' => 'Sheedy',
             'Hawthorn' => 'Clarkson',
@@ -85,21 +85,17 @@ and open the template in the editor.
 
 
         print $afl['St Kilda'];
-        
+
         print "<br>\n";
 
         //Search for the first club that "Scott" coaches and print
-        
-     
-
-$key = array_search('Scott', $afl);
 
 
-print "$key";
+
+        $key = array_search('Scott', $afl);
 
 
-        
-        
+        print "$key";
         ?>
     </body>
 </html>

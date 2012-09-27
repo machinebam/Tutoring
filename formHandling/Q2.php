@@ -10,18 +10,12 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        
         $side1 = 9;
         $side2 = 12;
-        
-        $hypotenuseSquared = ($side1 * $side1)+($side2 * $side2);
-        
+
+        $hypotenuseSquared = ($side1 * $side1) + ($side2 * $side2);
+
         print "$hypotenuseSquared";
-        
-        
-        
-        
-        
         ?>
     </body>
 </html>
