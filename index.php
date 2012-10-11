@@ -12,7 +12,7 @@
         </form>
   
 </form>
-        
+        <br>Still don't have a wish list?! <a href="createNewWisher.php">Create now</a>
         
     </body>
 </html>
