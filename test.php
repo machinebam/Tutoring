@@ -1,14 +1,21 @@
 <?php
 
+/*
+ * Create the WishDB Class
+ */
+
 class WishDB extends mysqli {
 
     // single instance of self shared among all instances
     private static $instance = null;
+    
     // db connection config vars
     private $user = "phpuser";
     private $pass = "phpuserpw";
     private $dbName = "wishlist";
     private $dbHost = "localhost";
+    
+    //Instantiating the WishDB class
 
     //This method must be static, and must return an instance of the object if the object
     //does not already exist.
@@ -28,6 +35,8 @@ class WishDB extends mysqli {
     public function __wakeup() {
         trigger_error('Deserializing is not allowed.', E_USER_ERROR);
     }
+    
+    //Adding a Constructor to the WishDB Class
 
     // private constructor
     private function __construct() {
@@ -38,6 +47,9 @@ class WishDB extends mysqli {
         }
         parent::set_charset('utf-8');
     }
+    
+    //Functions in the WishDB Class
+    //Function get_wisher_id_by_name
 
     public function get_wisher_id_by_name($name) {
         $name = $this->real_escape_string($name);
@@ -50,6 +62,8 @@ class WishDB extends mysqli {
             return null;
     }
 
+    //Function create_wisher
+    
     public function get_wishes_by_wisher_id($wisherID) {
         return $this->query("SELECT id, description, due_date FROM wishes WHERE wisher_id=" . $wisherID);
     }
