@@ -6,15 +6,13 @@
     </head>
     <body>
         <?php
+        
+        require_once("Includes/db.php");
         // Validating Data and Adding It to the Database
         //Initialize variables. The first variables pass database credentials, 
         //others variables that will be used in the PHP operations.
 
-        /** database connection credentials */
-        $dbHost = "localhost"; //on MySql
-        $dbXeHost = "localhost/XE";
-        $dbUsername = "phpuser";
-        $dbPassword = "phpuserpw";
+    
 
         /** other variables */
         $userNameIsUnique = true;
@@ -29,23 +27,10 @@
                 $userIsEmpty = true;
             }
 
-            /** Create database connection */
-            $con = mysqli_connect("localhost", "phpuser", "phpuserpw");
-            if (!$con) {
-                exit('Connect Error (' . mysqli_connect_errno() . ') '
-                        . mysqli_connect_error());
-            }
-            //set the default client character set 
-            mysqli_set_charset($con, 'utf-8');
-
-            /** Check whether a user whose name matches the "user" field already exists */
-            mysqli_select_db($con, "wishlist");
-            $user = mysqli_real_escape_string($con, $_POST['user']);
-            $wisher = mysqli_query($con, "SELECT id FROM wishers WHERE name='" . $user . "'");
-            $wisherIDnum = mysqli_num_rows($wisher);
-            if ($wisherIDnum) {
-                $userNameIsUnique = false;
-            }
+       $wisherID = WishDB::getInstance()->get_wisher_id_by_name($_POST["user"]);
+if ($wisherID) {
+   $userNameIsUnique = false;
+}
 
             if ($_POST["password"] == "") {
                 $passwordIsEmpty = true;
@@ -60,16 +45,11 @@
              * If the data was validated successfully, add it as a new entry in the "wishers" database.
              * After adding the new entry, close the connection and redirect the application to editWishList.php.
              */
-            if (!$userIsEmpty && $userNameIsUnique && !$passwordIsEmpty && !$password2IsEmpty && $passwordIsValid) {
-                $password = mysqli_real_escape_string($con, $_POST['password']);
-                mysqli_select_db($con, "wishlist");
-                mysqli_query($con, "INSERT wishers (name, password) VALUES ('" . $user . "', '" . $password . "')");
-                mysqli_free_result($wisher);
-                mysqli_close($con);
-                header('Location: editWishList.php');
-                exit;
-            }
-        }
+          if (!$userIsEmpty && $userNameIsUnique && !$passwordIsEmpty && !$password2IsEmpty && $passwordIsValid) {
+    WishDB::getInstance()->create_wisher($_POST["user"], $_POST["password"]);
+    header('Location: editWishList.php' );
+    exit;
+}
         ?>
         <!-- Form to enter a new wish-->
 
