@@ -9,7 +9,6 @@ class WishDB extends mysqli {
     private $pass = "phpuserpw";
     private $dbName = "wishlist";
     private $dbHost = "localhost";
-    private $con = null;
 
     //This method must be static, and must return an instance of the object if the object
     //does not already exist.
@@ -45,7 +44,7 @@ class WishDB extends mysqli {
         $wisher = $this->query("SELECT id FROM wishers WHERE name = '"
                         . $name . "'");
 
-        if ($wisher->num_rows > 0) {
+        if ($wisher->num_rows > 0){
             $row = $wisher->fetch_row();
             return $row[0];
         } else
@@ -71,31 +70,41 @@ class WishDB extends mysqli {
         return $result->data_seek(0);
     }
 
-    //Insert Wish
-    
-    function insert_wish($wisherID, $description, $duedate){
-    $description = $this->real_escape_string($description);
-    if ($this->format_date_for_sql($duedate)==null){
-        $this->query("INSERT INTO wishes (wisher_id, description)" .
-             " VALUES (" . $wisherID . ", '" . $description . "')");
-    } else
-    $this->query("INSERT INTO wishes (wisher_id, description, due_date)" . 
-                       " VALUES (" . $wisherID . ", '" . $description . "', " 
-                       . $this->format_date_for_sql($duedate) . ")");
-}
+    function insert_wish($wisherID, $description, $duedate) {
+        $description = $this->real_escape_string($description);
+        if ($this->format_date_for_sql($duedate)==null){
+           $this->query("INSERT INTO wishes (wisher_id, description)" .
+                " VALUES (" . $wisherID . ", '" . $description . "')");
+        } else
+        $this->query("INSERT INTO wishes (wisher_id, description, due_date)" .
+                " VALUES (" . $wisherID . ", '" . $description . "', "
+                . $this->format_date_for_sql($duedate) . ")");
+    }
 
+    function format_date_for_sql($date) {
+        if ($date == "")
+            return null;
+        else {
+            $dateParts = date_parse($date);
+            return $dateParts['year'] * 10000 + $dateParts['month'] * 100 + $dateParts['day'];
+        }
+    }
 
-//add date
-function format_date_for_sql($date){
-    if ($date == "")
-        return null;
-    else {
-        $dateParts = date_parse($date);
-        return $dateParts["year"]*10000 + $dateParts["month"]*100 + $dateParts["day"];
-   }
+    public function update_wish($wishID, $description, $duedate) {
+        $description = $this->real_escape_string($description);
+        $this->query("UPDATE wishes SET description = '" . $description .
+                "', due_date = " . $this->format_date_for_sql($duedate)
+                . " WHERE id =" . $wishID);
+    }
 
-}
-    
+    public function get_wish_by_wish_id($wishID) {
+        return $this->query("SELECT id, description, due_date FROM wishes WHERE id = " . $wishID);
+    }
+
+    public function delete_wish($wishID) {
+        $this->query("DELETE FROM wishes WHERE id = " . $wishID);
+    }
+
 }
 
 ?>
