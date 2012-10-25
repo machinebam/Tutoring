@@ -17,6 +17,27 @@
     <body>
         <form name="addNewWish" action="editWish.php">            
             <input type="submit" value="Add Wish">
+            <table border="black">
+    <tr><th>Item</th><th>Due Date</th></tr>
+    <?php
+    require_once("Includes/db.php");
+    $wisherID = WishDB::getInstance()->get_wisher_id_by_name($_SESSION["user"]);
+    $result = WishDB::getInstance()->get_wishes_by_wisher_id($wisherID);
+    while($row = mysqli_fetch_array($result)) {
+
+        echo "<tr><td>" . htmlentities($row['description']) . "</td>";
+
+        echo "<td>" . htmlentities($row['due_date']) . "</td></tr>\n";
+    }
+    ?>
+</table>
+            
+            
         </form>
+        
+        <!-- return form -->
+        <form name="backToMainPage" action="index.php">
+<input type="submit" value="Back To Main Page"/>
+</form>
     </body>
 </html>

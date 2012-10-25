@@ -71,6 +71,31 @@ class WishDB extends mysqli {
         return $result->data_seek(0);
     }
 
+    //Insert Wish
+    
+    function insert_wish($wisherID, $description, $duedate){
+    $description = $this->real_escape_string($description);
+    if ($this->format_date_for_sql($duedate)==null){
+        $this->query("INSERT INTO wishes (wisher_id, description)" .
+             " VALUES (" . $wisherID . ", '" . $description . "')");
+    } else
+    $this->query("INSERT INTO wishes (wisher_id, description, due_date)" . 
+                       " VALUES (" . $wisherID . ", '" . $description . "', " 
+                       . $this->format_date_for_sql($duedate) . ")");
+}
+
+
+//add date
+function format_date_for_sql($date){
+    if ($date == "")
+        return null;
+    else {
+        $dateParts = date_parse($date);
+        return $dateParts["year"]*10000 + $dateParts["month"]*100 + $dateParts["day"];
+   }
+
+}
+    
 }
 
 ?>
