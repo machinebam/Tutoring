@@ -224,12 +224,12 @@ class WishersDB extends mysqli {
     }
     
     public function delete_wishes($wishID) {
-        $this->query("DELETE FROM wishes");
+        $this->query("DELETE FROM wishes WHERE id = " . $wisherID);
     }
     
     
-     public function delete_wisher($wisherID) {
-        $this->query("DELETE FROM wisher WHERE id - " . $wisherID);
+     public function delete_wisher($wishersID) {
+        $this->query("DELETE FROM wishers WHERE id - " . $wishersID);
     }
 
 }
