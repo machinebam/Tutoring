@@ -60,7 +60,7 @@ if (array_key_exists("user", $_SESSION)) {
                     </form>  </td>
         </div>
         
-        <td> <form name="deleteWisher" action="deleteAllwisher.php" method="POST">
+        <td> <form name="deleteWisher" action="deletewisher.php" method="POST">
                         <input type="hidden" name="wisherID" value="<?php echo $wisherID; ?>"/>
                         <input type="submit" name="deleteWisher" value="Delete Account?"/>
                     </form>  </td>
