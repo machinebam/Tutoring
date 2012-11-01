@@ -35,13 +35,13 @@ label {
     margin-bottom: 2px;
 }
 #content {
-    width: 800px;
+    width: 80%;
     margin: 0 auto;
 }
 .logon {
-    font-size: 18px;
-    width: 150px;
-    margin-left: 600px;
+    margin: 0;
+    
+    
 }
 .logon input {
     font-size: 18px;
@@ -50,10 +50,10 @@ label {
 }
 .showWishList {
     position: absolute;
-    left: 50%;
-    width: 400px;
-    top: 450px;
-    text-align: right;
+   
+    width: 50%;
+    top: 50%;
+  
 }
 .showWishList input {
     font-size: 18px;
@@ -111,7 +111,7 @@ table.std {
     border-collapse: separate;
     border-spacing: 0px;
     border: 1px solid #ccc;
-    *border-collapse: expression('separate', cellSpacing = '0px'); /* ie fix */
+    border-collapse: expression('separate', cellSpacing = '0px'); /* ie fix */
 }
 table.std th {
     background-color: #cbe3f3;

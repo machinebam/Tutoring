@@ -22,14 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     </head>
     <body>
 
-    <div id="content">
-        <div class="logo">
-            <img src="static/logo1.jpg" alt="logo"/>
-            <img src="static/logo2.jpg" alt="logo"/>
-            <br/>
-            <img src="static/logo3.jpg" alt="logo"/>
-            <img src="static/logo5.jpg" alt="logo"/>
-        </div>
+  
         <div class="logon">
             <input type="submit" name="myWishList" value="My Wish List >>" onclick="javascript:showHideLogonForm()"/>
             <form name="logon" action="index.php" method="POST"
@@ -64,6 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <div class="createWishList">
             Still don't have a wish list?! <a href="createNewWisher.php">Create now</a>
         </div>
+        
+        
     </div>
         <script type="text/javascript">
             function showHideLogonForm() {
@@ -88,5 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 }
             }
         </script>
+    
+    
     </body>
 </html>

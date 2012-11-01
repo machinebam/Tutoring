@@ -51,5 +51,9 @@ if (array_key_exists("user", $_SESSION)) {
         <form name="backToMainPage" action="index.php">
             <input type="submit" value="Back To Main Page"/>
         </form>
+        
+        <div class="deleteWishList">
+        <br>Delete Username and Wishes <a href="deleteWisher.php">Delete now</a>
+        </div>
     </body>
 </html>
