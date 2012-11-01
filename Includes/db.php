@@ -228,8 +228,8 @@ class WishersDB extends mysqli {
     }
     
     
-     public function delete_wishers($wisherID) {
-        $this->query("DELETE FROM wishers WHERE id - " . $wisherID);
+     public function delete_wisher($wisherID) {
+        $this->query("DELETE FROM wisher WHERE id - " . $wisherID);
     }
 
 }
