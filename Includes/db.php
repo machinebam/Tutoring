@@ -104,7 +104,16 @@ class WishDB extends mysqli {
     public function delete_wish($wishID) {
         $this->query("DELETE FROM wishes WHERE id = " . $wishID);
     }
+    
+    public function delete_wishes($wishID) {
+        $this->query("DELETE FROM wishes");
+    }
 
+    
+    
+    
+    
+   
 }
 
 ?>

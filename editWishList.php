@@ -17,7 +17,7 @@ if (array_key_exists("user", $_SESSION)) {
             <tr><th>Item</th><th>Due Date</th></tr>
             <?php
             require_once("Includes/db.php");
-
+            
             $wisherID = WishDB::getInstance()->get_wisher_id_by_name($_SESSION['user']);
             $result = WishDB::getInstance()->get_wishes_by_wisher_id($wisherID);
             while ($row = mysqli_fetch_array($result)):
@@ -52,8 +52,19 @@ if (array_key_exists("user", $_SESSION)) {
             <input type="submit" value="Back To Main Page"/>
         </form>
         
-        <div class="deleteWishList">
-        <br>Delete Username and Wishes <a href="deleteWisher.php">Delete now</a>
+        <div class="deleteAll">
+        
+        <td> <form name="deleteAll" action="deleteAllwishes.php" method="POST">
+                        <input type="hidden" name="AllWishers" value="<?php echo $wisherID; ?>"/>
+                        <input type="submit" name="deleteAllWishes" value="Delete All Wishes?"/>
+                    </form>  </td>
+        </div>
+        
+        <td> <form name="deleteWisher" action="deleteAllwisher.php" method="POST">
+                        <input type="hidden" name="wisherID" value="<?php echo $wisherID; ?>"/>
+                        <input type="submit" name="deleteWisher" value="Delete Account?"/>
+                    </form>  </td>
         </div>
     </body>
 </html>
+

@@ -2,6 +2,8 @@ body {
     font-family: arial, helvetica;
     font-size: 12px;
     background-color: #fafafa;
+    text-align: right;
+        
 }
 input {
     font-family: arial, helvetica;
@@ -21,8 +23,7 @@ h1 {
     color: #069;
 }
 form {
-    margin: 0;
-    padding: 0;
+   
 }
 a {
     color: #069;
@@ -49,8 +50,7 @@ label {
     margin-bottom: 5px;
 }
 .showWishList {
-    position: absolute;
-   
+    
     width: 50%;
     top: 50%;
   
@@ -64,15 +64,14 @@ label {
 }
 .createWishList {
     position: absolute;
-    left: 50%;
-    margin-left: -150px;
+    
+    
     top: 385px;
     color: blue;
     font-size: 30px;
 }
 .logo {
-    width: 600px;
-    float:left;
+ 
 }
 
 .welcome {

@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
                 echo ("<br/>");
             }
             if (!$userNameIsUnique) {
-                echo ("The person already exists. Please check the spelling and try again");
+                echo ("The person already exists. Please choose a new username and try again");
                 echo ("<br/>");
             }
             ?>
