@@ -6,13 +6,7 @@
         <title></title>
     </head>
     <body>
-        <?php
-  $conn = mysqli_connect('localhost', 'root', '', 'cheese_shop', '3306');
-if (!$conn) {
-    die('Could not connect to MySQL: ' . mysqli_connect_error());
-}
-mysqli_query($conn, 'SET NAMES \'utf8\'');
-?>
+
         
 <table>
 <tr>
@@ -26,6 +20,10 @@ mysqli_query($conn, 'SET NAMES \'utf8\'');
 
 
 <?php
+require_once 'dbfunctions.php';
+
+$conn = openCheeseDb(); //from dbfunctions.php
+
 $result = mysqli_query($conn, 'SELECT id, item_name, item_desciption, unit_price, picture_file_name FROM items');
 while (($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) != NULL) {
     echo '<tr>';

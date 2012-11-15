@@ -18,12 +18,13 @@ DROP TABLE IF EXISTS `users`;
 		
 CREATE TABLE `users` (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `new field` INTEGER NULL DEFAULT NULL,
   `full_name` VARCHAR(255) NULL DEFAULT NULL,
   `street_address` VARCHAR(255) NULL DEFAULT NULL,
   `city` VARCHAR(255) NULL DEFAULT NULL,
   `post_code` VARCHAR(255) NULL DEFAULT NULL,
   `country` VARCHAR(255) NULL DEFAULT NULL,
+  `username` VARCHAR(255) NULL DEFAULT NULL,
+  `password` VARCHAR(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) COMMENT 'customers, who may or may not yet have provided their detail';
 
@@ -93,8 +94,8 @@ ALTER TABLE `items_orders` ADD FOREIGN KEY (item_id) REFERENCES `items` (`id`);
 -- Test Data
 -- ---
 
--- INSERT INTO `users` (`id`,`new field`,`full_name`,`street_address`,`city`,`post_code`,`country`) VALUES
--- ('','','','','','','');
+-- INSERT INTO `users` (`id`,`full_name`,`street_address`,`city`,`post_code`,`country`,`username`,`password`) VALUES
+-- ('','','','','','','','');
 -- INSERT INTO `items` (`id`,`item_name`,`item_desciption`,`unit_price`,`picture_file_name`) VALUES
 -- ('','','','','');
 -- INSERT INTO `orders` (`id`,`order_state`,`order_total_value`,`user_id`) VALUES
