@@ -47,5 +47,13 @@ Details Page
  * User Country
   
  * (payment details - later)
+ *
+ * WIREFRAMES LINKED IN A STORY BOARD FASHION
+ * DESIGN DB
+ * SAVE DB DESIGN
+ * SAVE DDL - DATA DEFINITION LANGUAGE AS .sql FILE
+ * CREATE CHEESE SHOP DB- USE NETBEANS, 
+ * BUILD PHP PAGES
+ * 
  */
 ?>
