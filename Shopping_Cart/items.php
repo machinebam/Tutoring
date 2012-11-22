@@ -32,7 +32,7 @@ if (array_key_exists('cartCount', $_SESSION)){
         <a href="shoppingCart.php">Shopping Cart</a></br>
 
         <form action ="searchResults.php" method="get">
-            <inptut type="search" name="q" placeholder="Search for Cheese"/>
+            <input type="search" name="q" placeholder="Search for Cheese"/>
                 <input type="submit" name="search" value="Search!" />
         </form>
 <table>
