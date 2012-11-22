@@ -16,30 +16,8 @@ if (array_key_exists('cartCount', $_SESSION)){
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cheese Shop</title>
         
-        <style type="text/css">
-            body{
-                
-             background-color: bisque;
-             color: black;
-             font-family: monospace;
-             font-size: 1.5em;
-            }
-            
-            table {
-                
-                background-color: #ff9966;
-                border: solid brown;
-            }
-            
-            th {
-                
-                background-color: crimson;
-                text-transform: uppercase;
-                
-            }
-            
-        </style> 
         
+        <link rel="stylesheet" type="text/css" href="shopstyle.css">
       
     </head>
     <body>
@@ -49,9 +27,9 @@ if (array_key_exists('cartCount', $_SESSION)){
         print $cartCount;
         
         ?>
-        Items in your 
+        items in your 
         
-        <a href="shoppingCart.php">Shopping Cart</a>
+        <a href="shoppingCart.php">Shopping Cart</a></br>
 
         
 <table>

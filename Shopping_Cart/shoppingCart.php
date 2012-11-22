@@ -19,7 +19,9 @@ if (array_key_exists('orderID', $_SESSION)) {
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title></title>
+        <title>Your Shopping Cart</title>
+        
+        <link rel="stylesheet" type="text/css" href="shopstyle.css">
     </head>
     <body>
         

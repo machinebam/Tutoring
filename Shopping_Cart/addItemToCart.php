@@ -97,7 +97,7 @@ if ($result === false) {
 //strore the user ID and order ID in the session,
 
 
-
+$_SESSION['cartCount']++;
 
 $_SESSION['userID'] = $userID;
 $_SESSION ['orderID'] = $orderID;
