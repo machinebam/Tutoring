@@ -37,7 +37,7 @@ if (array_key_exists("user", $_SESSION)) {
 
     // if user us not logged in, create new user,
 
-    $result = $mysqli_query($conn, 'INSERT INTO cheese_shop.users (full_name) VALUES (NULL)');
+    $result = $$mysqli_query($conn, 'INSERT INTO cheese_shop.users (full_name) VALUES (NULL)');
 
     if ($result === false) {
 
@@ -53,7 +53,7 @@ if (array_key_exists("user", $_SESSION)) {
 //      order_state = 'OPEN' (i.e a shopping cart).
 //  
 
-$result = $mysqli_query($conn, "SELECT id FROM orders WHERE order_state = 'OPEN' AND user_id = $userID");
+$result = $mysqli_query($conn, "SELECT id FROM orders WHERE order_state = 'OPEN' AND user_id = . $userID");
 
 //TODO: explicitly check that there is only one record.
 
@@ -98,6 +98,11 @@ $result = $mysqli_query($conn,
     
     
 }
+//strore session, 
+
+$_SESSION['userID'] = $userID;
+$_SESSION ['orderID'] = $orderID;
+
 
 header("Location: items.php")
 
