@@ -1,19 +1,65 @@
+<?php
 
+session_start();
+
+$cartCount = -0; //number of items in cart
+
+if (array_key_exists('cartCount', $_SESSION)){
+    
+    $cartCount = $_SESSION ['cartCount'];
+}
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title></title>
+        <title>Cheese Shop</title>
+        
+        <style type="text/css">
+            body{
+                
+             background-color: bisque;
+             color: black;
+             font-family: monospace;
+             font-size: 1.5em;
+            }
+            
+            table {
+                
+                background-color: #ff9966;
+                border: solid brown;
+            }
+            
+            th {
+                
+                background-color: crimson;
+                text-transform: uppercase;
+                
+            }
+            
+        </style> 
+        
+      
     </head>
     <body>
+        
+        <?php
+        
+        print $cartCount;
+        
+        ?>
+        Items in your 
+        
+        <a href="shoppingCart.php">Shopping Cart</a>
 
         
 <table>
 <tr>
     
-    <th>item_name</th>
-    <th>item_desciption</th>
-    <th>unit_price</th>
+    <th>item name</th>
+    <th>item desciption</th>
+    <th>unit price</th>
     <th>&nbsp;</th>
     <th>&nbsp;</th>
 </tr>
@@ -21,6 +67,8 @@
 
 <?php
 require_once 'dbfunctions.php';
+
+
 
 $conn = openCheeseDb(); //from dbfunctions.php
 
