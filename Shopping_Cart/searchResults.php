@@ -31,17 +31,19 @@ and open the template in the editor.
       $query = "SELECT item_id, item_name, unit_price, picture_file_name
                 FROM items
                     WHERE item_name
-                        LIKE '%  %'
+                        LIKE '% cheese %'
         
                 OR item_description
-                        LIKE '%   %'
+                        LIKE '%  cheese %'
 
                     ";
 
             $result = mysqli_query($conn, $query);
 
 
-            while (($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) != NULL) {
+            while (($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) != NULL) 
+                
+                {
                 echo '<tr>';
 
                 echo '<td>' . $row['item_name'] . '</td>';
