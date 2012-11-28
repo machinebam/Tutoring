@@ -17,8 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
     /** Create database connection */
 
-    $wisherID = WishDB::getInstance()->get_wisher_id_by_name($_POST['user']);
-    if ($wisherID) {
+    $userID = cheeseDB::getInstance()->get_user_id_by_name($_POST['user']);
+    if ($userID) {
         $userNameIsUnique = false;
     }
 
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
      * After adding the new entry, close the connection and redirect the application to editWishList.php.
      */
     if (!$userIsEmpty && $userNameIsUnique && !$passwordIsEmpty && !$password2IsEmpty && $passwordIsValid) {
-        WishDB::getInstance()->create_wisher($_POST['user'], $_POST['password']);
+        cheeseDB::getInstance()->create_user($_POST['user'], $_POST['password']);
         session_start();
         $_SESSION['user'] = $_POST['user'];
         header('Location: editWishList.php' );
@@ -49,13 +49,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 <html lang="en">
    <head>
     <meta charset="utf-8">
-    <title>Wishlist</title>
+    <title>Registration</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 20px;
@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
         margin-top: 28px;
       }
     </style>
-    <link href="bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -109,19 +109,42 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
   </head>
     <body>
         
-        <div class="container-narrow">
         
-        <div class="masthead">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="index.php">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-        <h3 class="muted">Wishlist Application</h3>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="items.php">Cheese Shop</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="items.php">Home</a></li>
+              <li><a href="">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><?php
+        
+        print $cartCount;
+        
+        ?>
+        items in your 
+        
+        <a href="shoppingCart.php">Shopping Cart</a></li>
+              
+            <form class="navbar-form pull-right">
+              <input class="span2" type="text" placeholder="Email">
+              <input class="span2" type="password" placeholder="Password">
+              <button type="submit" class="btn">Sign in</button>
+            </form>
+          </div><!--/.nav-collapse -->
+        </div>
       </div>
+    </div>
         
-        <div class="jumbotron"><h1>Join Us</h1>
-            <h2>You'll be a wishing in no time.</h2>
+        <div class="jumbotron"><h1>Register</h1>
+            <h2></h2>
         <form class="form-inline" action="createNewUser.php" method="POST">
             Your name: <input type="text" placeholder="Makeup a user name"name="user"/></br>
             <?php
@@ -147,6 +170,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
             Confirm Password: <input type="password" name="password2"/>
            
             </br>
+            </br>
+            </br>
             <button type="submit" class="btn btn-large btn-success">
   <!--<i class="btn btn-large btn-success"></i>--> Register
 </button    >
@@ -166,6 +191,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
         </form>
             
+        </div>
+        <hr>
         </div>
         
 

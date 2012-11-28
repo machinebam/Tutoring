@@ -70,10 +70,10 @@ if (array_key_exists('cartCount', $_SESSION)){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Cheese Shop</a>
+          <a class="brand" href="items.php">Cheese Shop</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
+              <li class="active"><a href="items.php">Home</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
               <li><?php
@@ -114,14 +114,20 @@ if (array_key_exists('cartCount', $_SESSION)){
       <!-- Example row of columns -->
       <div class="row">
         <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+          <h2>Taste the difference</h2>
+          <p>With our mouth watering mouldy cheese, you can really
+          give your taste buds a workout. We really emphasis the vain in our 
+          blue vein cheese and put the goud in Gouda. 
+          will make  </p>
+          
         </div>
         <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+          <h2>Explore</h2>
+          <p>Can't afford a trip to Paris? Neither can we! So, do what we
+          do, buy every cheese you can afford, a beret and curse the price
+          of traveling.
+           </p>
+          
        </div>
         <div class="span4">
           <h2>Search</h2>
@@ -136,7 +142,7 @@ if (array_key_exists('cartCount', $_SESSION)){
       <hr>
 
       <footer>
-        <p>&copy; Company 2012</p>
+        <p><!--&copy;-->  Don't read this check out our cheese!</p>
       </footer>
 
     </div> <!-- /container -->
