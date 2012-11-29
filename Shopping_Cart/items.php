@@ -105,7 +105,7 @@ if (array_key_exists('cartCount', $_SESSION)){
       <div class="hero-unit">
         <h1>Cheese Lovers Rejoice!</h1>
         <p>At last there is a place to delight all your cheese needs, from Alderwood to Yarg.  </p>
-        <p><a href="createNewUser.php"class="btn btn-primary btn-large">Join Today &raquo;</a></p>
+        <p><a href="customerDetails.php"class="btn btn-primary btn-large">Join Today &raquo;</a></p>
         
         
         
