@@ -1,0 +1,30 @@
+INTRODUCTION
+============
+The eway Hosted Page Checkout module for PHP add eway Checkout as a Checkout  Module.
+This will allow merchants using PHP to offer eway Checkout as an alternate checkout method.
+
+
+REQUIREMENTS:
+
+*eWay Account
+*cURL is required and MUST be compiled into PHP
+
+========================================================
+
+NOTES:
+
+*This likely works on prior releases - no guarantees.
+*This module works with eway payment gateway.
+
+========================================================
+
+========================================================
+
+INSTALLATION:
+
+
+1. Copy the "YOUR_ROOT" folder into Root directory.
+
+2. Change the Response url in  ewaysharedpage.php (Line no:3) 
+
+
