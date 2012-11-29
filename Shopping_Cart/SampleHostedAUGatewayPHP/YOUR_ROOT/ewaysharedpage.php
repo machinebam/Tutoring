@@ -6,9 +6,9 @@ define('CURL_PROXY_REQUIRED','True')//we need a proxy
 
  // Eway payment in PHP
  $pathvalue="http://localhost/ScottDip/Shopping_Cart/YOUR_ROOT";
-  if(array_key_exists '')&& ($_GET['action']=="payment")
+  if(array_key_exists ('action', $_GET)&& ($_GET['action']=="payment");
   {
-        $ewayurl.="?CustomerID=87654321";
+        $ewayurl="?CustomerID=87654321";
 		$ewayurl.="&UserName=TestAccount";
 		$ewayurl.="&Amount=".$_POST['Amount'];
 		$ewayurl.="&Currency=AUD";
@@ -30,7 +30,7 @@ define('CURL_PROXY_REQUIRED','True')//we need a proxy
 		$ewayurl.="&CancelURL=".$pathvalue."ewaysharedpage.php";
 		$ewayurl.="&ReturnUrl=".$pathvalue."ewayresponse.php";
 		$ewayurl.="&CompanyLogo=".$_POST['CompanyLogo'];
-		$ewayurl.="&PageBanner=".$_POST['(PageBanner'];
+		$ewayurl.="&PageBanner=".$_POST['PageBanner'];
 		$ewayurl.="&MerchantReference=".$_POST['RefNum'];
 		$ewayurl.="&MerchantInvoice=".$_POST['Invoice'];
 		$ewayurl.="&MerchantOption1="; 
