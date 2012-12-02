@@ -26,6 +26,7 @@ if (array_key_exists('cartCount', $_SESSION)){
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.css">
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css">
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="FortAwesome/css/font-awesome.css">
       
     
     <meta charset="utf-8">
@@ -74,7 +75,7 @@ if (array_key_exists('cartCount', $_SESSION)){
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="items.php">Home</a></li>
-              <li><a href="#about">About</a></li>
+              <li><a href="#about">Cheese</a></li>
               <li><a href="#contact">Contact</a></li>
               <li><?php
         
@@ -105,9 +106,59 @@ if (array_key_exists('cartCount', $_SESSION)){
       <div class="hero-unit">
         <h1>Cheese Lovers Rejoice!</h1>
         <p>At last there is a place to delight all your cheese needs, from Alderwood to Yarg.  </p>
-        <p><a href="customerDetails.php"class="btn btn-primary btn-large">Join Today &raquo;</a></p>
+        <p><a href="customerDetails.php"class="btn btn-primary btn-large">Join Today &raquo;</a>
+        <a href="customerDetails.php"class="btn btn-primary btn-large">Join Today &raquo;</a></p>
+        
+               
+<table class="table table-striped table-bordered">
+<tr>
+    
+    <th>Cheese</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+</tr>
+
+
+<?php
+require_once 'dbfunctions.php';
+
+
+
+$conn = openCheeseDb(); //from dbfunctions.php
+
+$result = mysqli_query($conn, 'SELECT id, item_name, item_desciption, unit_price, picture_file_name FROM items');
+while (($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) != NULL) {
+    echo '<tr>';
+    $itemID = $row['id'];
+    
+    
+    echo '<td>' . $row['item_name'] . '</td>';
+    echo '<td>' . $row['item_desciption'] . '</td>';
+    echo '<td>' . $row['unit_price'] . '</td>';
+    echo '<td><img src="Shopping_Cart/thumbnails/' . $row['picture_file_name'] . '"/></td>';
+    ?>
+    <td>
+<form action="addItemToCart.php" method="post">
+    <input type="hidden" name="itemID" value="<?php echo $itemID; ?>" />
+    <input type="submit" a class="btn btn-success" name="addItem" value="Add" />
+    
+    <i class="icon-glass"></i>
+</form>
+    </td>       
+
+<?php
+    echo '</tr>';
+}
+mysqli_free_result($result);
+echo '</table>';
+
+mysqli_close($conn);     
+       
         
         
+        ?>
         
       </div>
 
@@ -137,6 +188,8 @@ if (array_key_exists('cartCount', $_SESSION)){
         </form>
           
         </div>
+          
+          
       </div>
 
       <hr>
@@ -147,58 +200,7 @@ if (array_key_exists('cartCount', $_SESSION)){
 
     </div> <!-- /container -->
 
-   
-        
-       
-
-       
-<table>
-<tr>
-    
-    <th>item name</th>
-    <th>item desciption</th>
-    <th>unit price</th>
-    <th>&nbsp;</th>
-    <th>&nbsp;</th>
-</tr>
-
-
-<?php
-require_once 'dbfunctions.php';
-
-
-
-$conn = openCheeseDb(); //from dbfunctions.php
-
-$result = mysqli_query($conn, 'SELECT id, item_name, item_desciption, unit_price, picture_file_name FROM items');
-while (($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) != NULL) {
-    echo '<tr>';
-    $itemID = $row['id'];
-    
-    
-    echo '<td>' . $row['item_name'] . '</td>';
-    echo '<td>' . $row['item_desciption'] . '</td>';
-    echo '<td>' . $row['unit_price'] . '</td>';
-    echo '<td><img src="Shopping_Cart/thumbnails/' . $row['picture_file_name'] . '"/></td>';
-    ?>
-    <td>
-<form action="addItemToCart.php" method="post">
-    <input type="hidden" name="itemID" value="<?php echo $itemID; ?>" />
-    <input type="submit" name="addItem" value="Add" />
-</form>
-    </td>       
-
-<?php
-    echo '</tr>';
-}
-mysqli_free_result($result);
-echo '</table>';
-
-mysqli_close($conn);     
-       
-        
-        
-        ?>
+ 
     
     <!-- Le javascript
     ================================================== -->
