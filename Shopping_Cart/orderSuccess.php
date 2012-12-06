@@ -135,7 +135,7 @@ $result = mysqli_query($conn, $query);
 
 $total = 0;
 while (($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) != NULL) {
-    echo '<tr>';
+    echo '<tr class="success">';
 
     echo '<td>' . $row['item_name'] . '</td>';
 
@@ -181,29 +181,32 @@ WHERE id = $userID";
 
     $query3 = " UPDATE orders 
                     SET order_state = 'SUBMITTED'
-                    WHERE users_id = $orderID";
+                    WHERE id = $orderID";
 
     $result3 = mysqli_query($conn, $query3);
 
     if (!$result3) {
         mysqli_query($conn, $query3);
         echo '<br/>There was a problem. <br/>';
+    } else { // there was no problem updating the existing order to be SUBMITTED
+        $query = "INSERT INTO `orders` (`order_state`,`order_total_value`,`user_id`) VALUES('OPEN',NULL,$userID)";
+
+        $result = mysqli_query($conn, $query);
+
+        if ($result === false) {
+
+            die("Illegal state: could not insert new order");
+
+            //if we get here we just inserted a new order
+        }
+        $orderID = mysqli_insert_id($conn);
+
+        $_SESSION['orderID'] = $orderID;
+        $_SESSION ['cartCount'] = 0;
     }
-    $query = "INSERT INTO `orders` (`order_state`,`order_total_value`,`user_id`) VALUES('OPEN',NULL,$userID)";
-
-    $result = mysqli_query($conn, $query);
-
-    if ($result === false) {
-
-        die("Illegal state: could not insert new order");
-
-        //if we get here we just inserted a new order
-    }
-    $orderID = mysqli_insert_id($conn);
-
-    $_SESSION['orderID'] = $orderID;
     ?>
-
+    
+    <button class="btn-github"><a href="items.php">Go Again!</a></button>
     </div>
 </body>
 </html>
