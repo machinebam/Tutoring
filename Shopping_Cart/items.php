@@ -14,6 +14,8 @@ if (array_key_exists('cartCount', $_SESSION)){
 
 
 <!DOCTYPE html>
+
+<!-- Fav and touch icons not included or responsive js-->
 <html lang="en">
   <head>
       
@@ -50,7 +52,7 @@ if (array_key_exists('cartCount', $_SESSION)){
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <!-- Fav and touch icons -->
+    <!-- Fav and touch icons not included-->
     <link rel="shortcut icon" href="../assets/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
@@ -75,22 +77,17 @@ if (array_key_exists('cartCount', $_SESSION)){
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="items.php">Home</a></li>
-              <li><a href="#about">Cheese</a></li>
-              <li><a href="#contact">Contact</a></li>
-              <li><?php
+              
+              <li><span class="span5"><?php
         
         print $cartCount;
         
         ?>
         items in your 
         
-        <a href="shoppingCart.php">Shopping Cart</a></li>
+        <a href="shoppingCart.php">Shopping Cart</a></li></span>
               
-            <form class="navbar-form pull-right">
-              <input class="span2" type="text" placeholder="Email">
-              <input class="span2" type="password" placeholder="Password">
-              <button type="submit" class="btn">Sign in</button>
-            </form>
+            
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -106,8 +103,7 @@ if (array_key_exists('cartCount', $_SESSION)){
       <div class="hero-unit">
         <h1>Cheese Lovers Rejoice!</h1>
         <p>At last there is a place to delight all your cheese needs, from Alderwood to Yarg.  </p>
-        <p><a href="customerDetails.php"class="btn btn-primary btn-large">Join Today &raquo;</a>
-        <a href="customerDetails.php"class="btn btn-primary btn-large">Join Today &raquo;</a></p>
+        <p><a href="customerDetails.php"class="btn btn-primary btn-large">Join Today &raquo;</a></p>
         
                
 <table class="table table-striped table-bordered">
@@ -137,14 +133,14 @@ while (($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) != NULL) {
     echo '<td>' . $row['item_name'] . '</td>';
     echo '<td>' . $row['item_desciption'] . '</td>';
     echo '<td>' . $row['unit_price'] . '</td>';
-    echo '<td><img src="Shopping_Cart/thumbnails/' . $row['picture_file_name'] . '"/></td>';
+    echo '<td><img src="thumbnails/' . $row['picture_file_name'] . '"class="img-rounded"/></td>';
     ?>
     <td>
 <form action="addItemToCart.php" method="post">
     <input type="hidden" name="itemID" value="<?php echo $itemID; ?>" />
-    <input type="submit" a class="btn btn-success" name="addItem" value="Add" />
+    <button type="submit" a class="btn btn-success" name="addItem" value="Add" >Add  <i class="icon-plus"></i></button>
     
-    <i class="icon-glass"></i>
+   
 </form>
     </td>       
 
@@ -159,6 +155,8 @@ mysqli_close($conn);
         
         
         ?>
+    
+    <p><a href="shoppingCart.php">View your shopping cart and buy all your cheese.<i class="icon-shopping-cart icon-white"></i></a></p>
         
       </div>
 
@@ -181,11 +179,13 @@ mysqli_close($conn);
           
        </div>
         <div class="span4">
-          <h2>Search</h2>
+          <h2>Want to know more about Cheese?</h2>
+          <p>Search Dairy Australia for all you need to know!</p>
           <form action ="searchResults.php" method="get">
             <input type="search" name="q" placeholder="Search for Cheese"/>
-                <input type="submit" a class="btn"name="search" value="Search!" />
+              <span class="span4">  <button type="submit" a class="btn btn-primary" name="search" value="Search" />Search  <i class="icon-search"></i></button></span>
         </form>
+          
           
         </div>
           

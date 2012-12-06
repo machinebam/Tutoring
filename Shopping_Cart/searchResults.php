@@ -1,8 +1,19 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
+<?php
+
+session_start();
+
+$cartCount = -0; //number of items in cart
+
+if (array_key_exists('cartCount', $_SESSION)){
+    
+    $cartCount = $_SESSION ['cartCount'];
+}
+
+?>
+
 <!DOCTYPE html>
+<!-- Fav and touch icons not included or responsive js-->
+
 <html>
      <head>
     <meta charset="utf-8">
@@ -63,7 +74,19 @@ and open the template in the editor.
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-  </head>
+  
+    <!-- Put the following javascript before the closing </head> tag. -->
+<script>
+  (function() {
+    var cx = '009407364661053869647:bzmmzxdluaq';
+    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+
+     </head>
     <body>
         
         
@@ -79,22 +102,16 @@ and open the template in the editor.
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="items.php">Home</a></li>
-              <li><a href="">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-              <li><?php
+              
+              
+             <li><span class="span5"><?php
         
         print $cartCount;
         
         ?>
         items in your 
         
-        <a href="shoppingCart.php">Shopping Cart</a></li>
-              
-            <form class="navbar-form pull-right">
-              <input class="span2" type="text" placeholder="Email">
-              <input class="span2" type="password" placeholder="Password">
-              <button type="submit" class="btn">Sign in</button>
-            </form>
+        <a href="shoppingCart.php">Shopping Cart</a></li></span>
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -104,59 +121,8 @@ and open the template in the editor.
             <h2></h2>
         
 
-
-        <?php
-        if (array_key_exists('q', $_GET)) {
-
-
-            $conn = mysqli_connect('localhost', 'root', '', 'cheese_shop', '3306');
-            if (!$conn) {
-                die('Could not connect to MySQL: ' . mysqli_connect_error());
-            }
-            mysqli_query($conn, 'SET NAMES \'utf8\'');
-
-            echo '<table>';
-            echo '<tr>';
-            echo '<th>item_name</th>';
-            echo '<th>unit_price</th>';
-            echo '<th> </th>';
-            echo '</tr>';
-      $query = "SELECT item_id, item_name, unit_price, picture_file_name
-                FROM items
-                    WHERE item_name
-                        LIKE '% cheese %'
-        
-                OR item_description
-                        LIKE '%  cheese %'
-
-                    ";
-
-            $result = mysqli_query($conn, $query);
-
-
-            while (($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) != NULL) 
-                
-                {
-                echo '<tr>';
-
-                echo '<td>' . $row['item_name'] . '</td>';
-
-
-                echo '<td>' . $row['unit_price'] . '</td>';
-                echo '<td>' . $row['picture_file_name'] . '</td>';
-                echo '</tr>';
-            }
-        } else {
-
-            print "No results available";
-        }
-        ?>
-
-
-
-
-
-
-        <!-- google code-->
+        <!-- Place this tag where you want both of the search box and the search results to render -->
+<gcse:search></gcse:search>
+      
     </body>
 </html>

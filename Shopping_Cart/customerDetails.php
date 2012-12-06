@@ -13,6 +13,8 @@ if (array_key_exists('cartCount', $_SESSION)) {
 
 
 <!DOCTYPE html>
+
+<!-- Fav and touch icons not included or responsive js-->
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -89,26 +91,21 @@ if (array_key_exists('cartCount', $_SESSION)) {
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li class="active"><a href="items.php">Home</a></li>
-                            <li><a href="">About</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                            <li><?php
-print $cartCount;
-?>
-                                items in your 
-
-                                <a href="shoppingCart.php">Shopping Cart</a></li>
-
-                            <form class="navbar-form pull-right">
-                                <input class="span2" type="text" placeholder="Email">
-                                <input class="span2" type="password" placeholder="Password">
-                                <button type="submit" class="btn">Sign in</button>
-                            </form>
+                          
+                            <li><span class="span5"><?php
+        
+        print $cartCount;
+        
+        ?>
+        items in your 
+        
+        <a href="shoppingCart.php">Shopping Cart</a></li></span>
                     </div><!--/.nav-collapse -->
                 </div>
             </div>
         </div>
 
-        <div class="jumbotron"><h1>Customer Details</h1>
+        <div class="jumbotron"><h1>Your Details</h1>
             <h2></h2>
         </div>
 
@@ -120,7 +117,7 @@ print $cartCount;
             <span class="span3">Country:</span><input type="text" name="country" value="" /></br>
             <span class="span3">Username:</span><input type="text" name="username" value="" /></br>
             <span class="span3">Password:</span><input type="password" name="password" value="" /></br>
-            <span class="span3"><input class="btn btn-large btn-success" type="submit" value="next" /></span>
+            <span class="span3"><button class="btn btn-large btn-success" type="submit" value="next" />Next  <i class="icon-thumbsup"></i></button></span>
         </form>
         <br/>
 

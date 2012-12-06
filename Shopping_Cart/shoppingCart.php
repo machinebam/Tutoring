@@ -11,7 +11,7 @@ if (array_key_exists('cartCount', $_SESSION)) {
 ?>
 
 <?php
-session_start();
+
 $orderID = -1;
 
 if (array_key_exists('orderID', $_SESSION)) {
@@ -28,6 +28,8 @@ if (array_key_exists('orderID', $_SESSION)) {
 <!DOCTYPE html>
 <html>
     <!DOCTYPE html>
+    
+    <!-- Fav and touch icons not included or responsive js-->
     <html lang="en">
         <head>
             <meta charset="utf-8">
@@ -104,20 +106,16 @@ if (array_key_exists('orderID', $_SESSION)) {
                         <div class="nav-collapse collapse">
                             <ul class="nav">
                                 <li class="active"><a href="items.php">Home</a></li>
-                                <li><a href="">About</a></li>
-                                <li><a href="#contact">Contact</a></li>
-                                <li><?php
-print $cartCount;
-?>
-                                    items in your 
-
-                                    <a href="shoppingCart.php">Shopping Cart</a></li>
-
-                                <form class="navbar-form pull-right">
-                                    <input class="span2" type="text" placeholder="Email">
-                                    <input class="span2" type="password" placeholder="Password">
-                                    <button type="submit" class="btn">Sign in</button>
-                                </form>
+                             
+                                
+                                <li><span class="span5"><?php
+        
+        print $cartCount;
+        
+        ?>
+        items in your 
+        
+        <a href="shoppingCart.php">Shopping Cart</a></li></span>
                         </div><!--/.nav-collapse -->
                     </div>
                 </div>
@@ -126,19 +124,19 @@ print $cartCount;
             <div class="jumbotron"><h1>Your Cart</h1>
                 <h2></h2>
 
-
+                <div class="container">
                 <?php
-                $conn = mysqli_connect('localhost', 'root', 'root', 'cheese_shop', '3306');
+                $conn = mysqli_connect('localhost', 'root', '', 'cheese_shop', '3306');
                 if (!$conn) {
                     die('Could not connect to MySQL: ' . mysqli_connect_error());
                 }
                 mysqli_query($conn, 'SET NAMES \'utf8\'');
 
 
-                echo '<table class="table table-striped">';
+                echo '<table class="table table-bordered">';
                 echo '<tr>';
-                echo '<th>item_name</th>';
-                echo '<th>unit_price</th>';
+                echo '<th>Cheese</th>';
+                echo '<th>Price</th>';
                 echo '<th> </th>';
                 echo '</tr>';
                 $query = "SELECT item_id, item_name, unit_price, picture_file_name
@@ -152,13 +150,13 @@ WHERE items_orders.order_id = $orderID";
 
                 $total = 0;
                 while (($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) != NULL) {
-                    echo '<tr>';
+                    echo '<tr class="warning">';
 
                     echo '<td>' . $row['item_name'] . '</td>';
 
 
                     echo '<td>' . $row['unit_price'] . '</td>';
-                    echo '<td>' . $row['picture_file_name'] . '</td>';
+                    echo '<td><img src="thumbnails/' . $row['picture_file_name'] . '"class="span1"/></td>';
                     echo '</tr>';
 
                     $total = $total + $row['unit_price'];
@@ -180,6 +178,6 @@ WHERE items_orders.order_id = $orderID";
                 </a>
 
 
-
+                </div>
         </body>
     </html>

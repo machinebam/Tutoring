@@ -93,6 +93,7 @@ if (array_key_exists('cartCount', $_SESSION)){
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
   </head>
     <body>
+      
         
         
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -107,34 +108,33 @@ if (array_key_exists('cartCount', $_SESSION)){
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="items.php">Home</a></li>
-              <li><a href="">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-              <li><?php
+           
+              <li><span class="span5"><?php
         
         print $cartCount;
         
         ?>
         items in your 
         
-        <a href="shoppingCart.php">Shopping Cart</a></li>
+        <a href="shoppingCart.php">Shopping Cart</a></li></span>
               
-            <form class="navbar-form pull-right">
-              <input class="span2" type="text" placeholder="Email">
-              <input class="span2" type="password" placeholder="Password">
-              <button type="submit" class="btn">Sign in</button>
-            </form>
+            
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
     </head>
     <body>
+        
+        <div class="container">
+            
+            <h1 class="jumbotron">Review your order and Details</h1>
 <?php
 // put your code here
-echo '<table>';
+echo '<table class="table table-bordered">';
 echo '<tr>';
-echo '<th>item_name</th>';
-echo '<th>unit_price</th>';
+echo '<th>Item</th>';
+echo '<th>Price ($AUD)</th>';
 echo '<th> </th>';
 echo '</tr>';
 $query = "SELECT item_id, item_name, unit_price, picture_file_name
@@ -148,20 +148,20 @@ $result = mysqli_query($conn, $query);
 
 $total = 0;
 while (($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) != NULL) {
-    echo '<tr>';
+    echo '<tr class="warning">';
 
     echo '<td>' . $row['item_name'] . '</td>';
 
 
     echo '<td>' . $row['unit_price'] . '</td>';
-    echo '<td>' . $row['picture_file_name'] . '</td>';
+   echo '<td><img src="thumbnails/' . $row['picture_file_name'] . '"class="span1"/></td>';
     echo '</tr>';
 
     $total = $total + $row['unit_price'];
 }
 mysqli_free_result($result);
 
-echo '<tr><td>TOTAL</td><td>' . $total . '</td><td>&nbsp; </td>';
+echo '<tr class="success"><td>TOTAL</td><td>' . $total . '</td><td>&nbsp; </td>';
 echo '</table>';
 ?>
 
@@ -192,6 +192,8 @@ WHERE id = $userID";
 Proceed to Payment
 
         </a>
+        
+        </div>
     </body>
 </html>
 
