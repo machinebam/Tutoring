@@ -205,7 +205,7 @@ WHERE id = $userID";
         $_SESSION ['cartCount'] = 0;
     }
     ?>
-    
+    <br>
     <button class="btn-github"><a href="items.php">Go Again!</a></button>
     </div>
 </body>

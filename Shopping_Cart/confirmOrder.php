@@ -109,14 +109,6 @@ if (array_key_exists('cartCount', $_SESSION)){
             <ul class="nav">
               <li class="active"><a href="items.php">Home</a></li>
            
-              <li><span class="span5"><?php
-        
-        print $cartCount;
-        
-        ?>
-        items in your 
-        
-        <a href="shoppingCart.php">Shopping Cart</a></li></span>
               
             
           </div><!--/.nav-collapse -->

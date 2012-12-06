@@ -2,11 +2,13 @@
 
 session_start();
 
-$cartCount = -0; //number of items in cart
+$cartCount = 0; //number of items in cart
 
 if (array_key_exists('cartCount', $_SESSION)){
     
     $cartCount = $_SESSION ['cartCount'];
+} else {
+    $_SESSION ['cartCount'] = 0;
 }
 
 ?>
